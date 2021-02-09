@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:winnerlucky/utility/dialog.dart';
 import 'package:winnerlucky/utility/style.dart';
 
 class Register extends StatefulWidget {
@@ -36,10 +37,10 @@ class _RegisterState extends State<Register> {
         if ((name?.isEmpty ?? true) ||
             (email?.isEmpty ?? true) ||
             (pass?.isEmpty ?? true)) {
-          Fluttertoast.showToast(msg: 'input is empty');
+          normalDialog(context, 'textinput is empty');
         } else {
-          Fluttertoast.showToast(msg: 'successfully');
-          Navigator.pushNamed(context, '/authen');
+          Fluttertoast.showToast(msg: 'success');
+          Navigator.pop(context, '/authen');
         }
       },
       child: Icon(Icons.cloud_upload),
@@ -82,7 +83,7 @@ class _RegisterState extends State<Register> {
         margin: EdgeInsets.only(top: 20),
         width: screen * 0.75,
         child: TextField(
-          onChanged: (value) => pass = value.trim(),
+          onChanged: (value) => email = value.trim(),
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             prefixIcon: Icon(
@@ -111,7 +112,7 @@ class _RegisterState extends State<Register> {
         margin: EdgeInsets.only(top: 20),
         width: screen * 0.75,
         child: TextField(
-          onChanged: (value) => name = value.trim(),
+          onChanged: (value) => pass = value.trim(),
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.lock,
