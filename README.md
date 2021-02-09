@@ -1,3 +1,3 @@
-# Winner Lucky App Demo
+# Flutter Demo
 
-Flutter project for WINNER LUCKY.
+a new Flutter project.
